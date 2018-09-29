@@ -40,11 +40,11 @@ If not installed, the system will malfunction.
 
 ### Guess What
 You need the Custom Search API key. More info [here](https://developers.google.com/custom-search/docs/tutorial/creatingcse)
-For number 2 in the tutorial, the sites are:
-- https://www.randomlists.com/data/things.json
-- https://www.randomlists.com/data/animals.json
-- https://www.randomlists.com/data/celebrities.json
-- https://www.randomlists.com/data/people.json
+**Leave the sites to search BLANK**
+
+When created, you'll see your CX key. Copy it and put it in the **second** control variable.
+Next, go to https://console.developers.google.com/apis/credentials and create your new project.
+Then click on "create credentials", and you'll be given your api key.
 
 If you need support doing this, head over to the [support server](https://discord.gg/FMUMPdn)
 ### 8ball
