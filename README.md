@@ -25,8 +25,8 @@ This pack includes:
 ### Trivia System
 1. Open Command Prompt (CMD) in your Bot Directory. (SHIFT + Right click)
 2. Type these 2 lines in:
-npm install snekfetch
-npm install entities
+- npm install snekfetch
+- npm install entities
 If not installed, the system will malfunction.
 
 ### Guess What
