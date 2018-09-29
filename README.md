@@ -1,5 +1,14 @@
 # Small Pack #1 - README!
 This is the first small pack, aswell as the very first pack.
+Please make sure you read the requirements. You can always come to the [support server](https://discord.gg/FMUMPdn) if you need help.
+
+### This pack was brought to you by;
+Pack Leader: `Dog#5567` (8ball)
+Pack Moderator: `Deus Corvi#1225` (GuessWhat)
+- `Acidic#1600` (Trivia System)
+- `GAMER#0101` (News Command)
+
+We are still recruiting! You can go [here](https://docs.google.com/forms/d/e/1FAIpQLSd1NN_gU7oa4yHMx14B5zzzjFsdPnUlmd_MB7F3mpj-U2KrHQ/viewform) to apply!
 
 ### Topic: Minigames
 This pack includes:
@@ -32,10 +41,10 @@ If not installed, the system will malfunction.
 ### Guess What
 You need the Custom Search API key. More info [here](https://developers.google.com/custom-search/docs/tutorial/creatingcse)
 For number 2 in the tutorial, the sites are:
-https://www.randomlists.com/data/things.json
-https://www.randomlists.com/data/animals.json
-https://www.randomlists.com/data/celebrities.json
-https://www.randomlists.com/data/people.json
+- https://www.randomlists.com/data/things.json
+- https://www.randomlists.com/data/animals.json
+- https://www.randomlists.com/data/celebrities.json
+- https://www.randomlists.com/data/people.json
 
 If you need support doing this, head over to the [support server](https://discord.gg/FMUMPdn)
 ### 8ball
