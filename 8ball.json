@@ -1,0 +1,56 @@
+{
+  "name": "8ball",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "XtMum",
+  "actions": [
+    {
+      "info": "1",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "message",
+      "name": "Store Command Params"
+    },
+    {
+      "condition": "0",
+      "comparison": "2",
+      "value": "2",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "2",
+      "name": "Check Parameters"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": ":x: Please put a sentence!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://nekos.life/api/v2/8ball",
+      "path": "response",
+      "storage": "1",
+      "varName": "response",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member} asked `${tempVars(\"message\")}`\n\n8ball says `${tempVars(\"response\")}`",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ]
+}

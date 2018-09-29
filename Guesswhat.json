@@ -1,0 +1,384 @@
+{
+  "name": "guesswhat",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "cLdMA",
+  "actions": [
+    {
+      "comment": "Below is a setup API & CX key, we recommend that you don't",
+      "color": "#ffffff",
+      "name": "Comment"
+    },
+    {
+      "comment": "use this as its limited requests a day.",
+      "color": "#ffffff",
+      "name": "Comment"
+    },
+    {
+      "storage": "1",
+      "varName": "custom-search-api-key",
+      "changeType": "0",
+      "value": "\"AIzaSyDTXqRqQn61dJGv2przqrsV8FAPeV6kEcE\"",
+      "name": "Control Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "custom-search-cx-key",
+      "changeType": "0",
+      "value": "\"005227705566558318826:hfmdpcfq_50\"",
+      "name": "Control Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "rand-num",
+      "min": "1",
+      "max": "4",
+      "name": "Generate Random Number"
+    },
+    {
+      "storage": "1",
+      "varName": "rand-num",
+      "comparison": "1",
+      "value": "1",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "4",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "things-rand-num",
+      "min": "0",
+      "max": "189",
+      "name": "Generate Random Number"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://www.randomlists.com/data/things.json",
+      "path": "",
+      "storage": "1",
+      "varName": "things-list-json",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "things-list-json",
+      "path": "$['RandL']['items'][${tempVars(\"things-rand-num\")}]",
+      "storage": "1",
+      "varName": "pulled-item",
+      "name": "Parse From Stored Json (Temp Fix)"
+    },
+    {
+      "count": "14",
+      "name": "Skip Actions"
+    },
+    {
+      "storage": "1",
+      "varName": "rand-num",
+      "comparison": "1",
+      "value": "2",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "4",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "animals-rand-num",
+      "min": "0",
+      "max": "187",
+      "name": "Generate Random Number"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://www.randomlists.com/data/animals.json",
+      "path": "",
+      "storage": "1",
+      "varName": "animals-list-json",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "animals-list-json",
+      "path": "$['RandL']['items'][${tempVars(\"animals-rand-num\")}]",
+      "storage": "1",
+      "varName": "pulled-item",
+      "name": "Parse From Stored Json (Temp Fix)"
+    },
+    {
+      "count": "9",
+      "name": "Skip Actions"
+    },
+    {
+      "storage": "1",
+      "varName": "rand-num",
+      "comparison": "1",
+      "value": "3",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "4",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "celebrities-rand-num",
+      "min": "0",
+      "max": "334",
+      "name": "Generate Random Number"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://www.randomlists.com/data/celebrities.json",
+      "path": "",
+      "storage": "1",
+      "varName": "celebrities-list-json",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "celebrities-list-json",
+      "path": "$['RandL']['items'][${tempVars(\"celebrities-rand-num\")}]",
+      "storage": "1",
+      "varName": "pulled-item",
+      "name": "Parse From Stored Json (Temp Fix)"
+    },
+    {
+      "count": "4",
+      "name": "Skip Actions"
+    },
+    {
+      "storage": "1",
+      "varName": "rand-num",
+      "comparison": "1",
+      "value": "4",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "1",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "people-rand-num",
+      "min": "0",
+      "max": "266",
+      "name": "Generate Random Number"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://www.randomlists.com/data/people.json",
+      "path": "",
+      "storage": "1",
+      "varName": "people-list-json",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "people-list-json",
+      "path": "$['RandL']['items'][${tempVars(\"people-rand-num\")}]",
+      "storage": "1",
+      "varName": "pulled-item",
+      "name": "Parse From Stored Json (Temp Fix)"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://www.googleapis.com/customsearch/v1?q=${tempVars(\"pulled-item\")}&cx=${tempVars(\"custom-search-cx-key\")}&safe=active&searchType=image&key=${tempVars(\"custom-search-api-key\")}",
+      "path": "",
+      "storage": "1",
+      "varName": "result-images",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "storage": "1",
+      "varName": "random-image-number",
+      "min": "1",
+      "max": "10",
+      "name": "Generate Random Number"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "result-images",
+      "path": "$['items'][${tempVars(\"random-image-number\")}]['link']",
+      "storage": "1",
+      "varName": "pulled-image-link",
+      "name": "Parse From Stored Json (Temp Fix)"
+    },
+    {
+      "text": "${tempVars(\"pulled-item\")}",
+      "text2": ".",
+      "text3": "",
+      "info": "1",
+      "storage": "1",
+      "varName": "pulled-item-period-fix",
+      "name": "Replace Text"
+    },
+    {
+      "title": "Guess What?",
+      "author": "",
+      "color": "BLUE",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "${tempVars(\"pulled-image-link\")}",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "You guys have 10 total chances to guess who or what this is!",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "0",
+      "varName2": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "filter": "content.length > 0",
+      "max": "1",
+      "time": "900000",
+      "storage2": "1",
+      "varName2": "response",
+      "iftrue": "3",
+      "iftrueVal": "3",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Await Response Call Action"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Times up! It's been over 15 minutes since the last response. The answer was: **${tempVars(\"pulled-item\")}**",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "guess_what_response_count",
+      "changeType": "0",
+      "value": "0",
+      "name": "Control Server Data"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "message": "1",
+      "varName": "response",
+      "info": "2",
+      "storage": "1",
+      "varName2": "response-text",
+      "name": "Store Message Info"
+    },
+    {
+      "storage": "1",
+      "varName": "response-text",
+      "comparison": "5",
+      "value": "(tempVars(\"pulled-item\"))||(tempVars(\"pulled-item-period-fix\"))/gmi",
+      "iftrue": "3",
+      "iftrueVal": "7",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "guess_what_response_count",
+      "changeType": "1",
+      "value": "1",
+      "name": "Control Server Data"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "guess_what_response_count",
+      "comparison": "1",
+      "value": "10",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "3",
+      "name": "Check Server Data"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Looks like no one got it right... The correct answer was: **${tempVars(\"pulled-item\")}**",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "guess_what_response_count",
+      "changeType": "0",
+      "value": "0",
+      "name": "Control Server Data"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Sorry about that! That's not the right answer! Remember, the answer has to be EXACTLY like what it is! So dot your i's and cross your t's, and make sure you've got a period where it's needed!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "call": "30",
+      "name": "Jump to Action"
+    },
+    {
+      "message": "1",
+      "varName": "response",
+      "info": "3",
+      "storage": "1",
+      "varName2": "response-author",
+      "name": "Store Message Info"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Congratulations! ${tempVars(\"response-author\")} got it right! The word was **${tempVars(\"pulled-item\")}**!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ]
+}
