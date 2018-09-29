@@ -3,8 +3,8 @@ This is the first small pack, aswell as the very first pack.
 Please make sure you read the requirements. You can always come to the [support server](https://discord.gg/FMUMPdn) if you need help.
 
 ### This pack was brought to you by;
-Pack Leader: `Dog#5567` (8ball)
-Pack Moderator: `Deus Corvi#1225` (GuessWhat)
+- Pack Leader: `Dog#5567` (8ball)
+- Pack Moderator: `Deus Corvi#1225` (GuessWhat)
 - `Acidic#1600` (Trivia System)
 - `GAMER#0101` (News Command)
 
