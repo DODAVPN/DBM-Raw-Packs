@@ -11,7 +11,7 @@ You can always come to the [support server](https://discord.gg/FMUMPdn) if you n
 
 We are still recruiting! You can go [here](https://docs.google.com/forms/d/e/1FAIpQLSd1NN_gU7oa4yHMx14B5zzzjFsdPnUlmd_MB7F3mpj-U2KrHQ/viewform) to apply!
 
-### Topic: Minigames
+### Topic: Moderation
 This pack includes:
 - Mute/Unmute system with s/m/h
 - Filter System
