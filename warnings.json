@@ -1,0 +1,126 @@
+{
+  "name": "warnings",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "MINcw",
+  "actions": [
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "warn_points",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "maxWarnings",
+      "name": "Store Server Data"
+    },
+    {
+      "condition": "1",
+      "comparison": "0",
+      "value": "1",
+      "iftrue": "2",
+      "iftrueVal": "9",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "1",
+      "storage": "1",
+      "varName2": "ID",
+      "name": "Store Member Info"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "warn.${tempVars(\"ID\")}",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "warnings",
+      "name": "Store Server Data"
+    },
+    {
+      "title": "Your warnings: ${tempVars(\"warnings\")}",
+      "author": "",
+      "color": "RANDOM",
+      "timestamp": "false",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "",
+      "message": "Max warnings: ${tempVars(\"maxWarnings\")}",
+      "footerIcon": "",
+      "name": "Set Embed Footer"
+    },
+    {
+      "storage": "1",
+      "varName": "",
+      "channel": "0",
+      "varName2": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "info": "1",
+      "storage": "1",
+      "varName2": "ID",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "info": "7",
+      "storage": "1",
+      "varName2": "tag",
+      "name": "Store Member Things"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "warn.${tempVars(\"ID\")}",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "warnings",
+      "name": "Store Server Data"
+    },
+    {
+      "title": "${tempVars(\"tag\")}'s warnings: ${tempVars(\"warnings\")}",
+      "author": "",
+      "color": "RANDOM",
+      "timestamp": "false",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "",
+      "message": "Max warnings: ${tempVars(\"maxWarnings\")}",
+      "footerIcon": "",
+      "name": "Set Embed Footer"
+    },
+    {
+      "storage": "1",
+      "varName": "",
+      "channel": "0",
+      "varName2": "",
+      "name": "Send Embed Message"
+    }
+  ]
+}

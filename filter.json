@@ -1,0 +1,276 @@
+{
+  "name": "filter",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "DegUR",
+  "actions": [
+    {
+      "info": "0",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "create",
+      "name": "Store Command Params"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "info": "1",
+      "storage": "1",
+      "varName2": "sid",
+      "name": "Store Server Info"
+    },
+    {
+      "storage": "1",
+      "varName": "create",
+      "comparison": "6",
+      "value": "(remove||delete)",
+      "iftrue": "2",
+      "iftrueVal": "16",
+      "iffalse": "0",
+      "iffalseVal": "8",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "create",
+      "comparison": "6",
+      "value": "(list||view)",
+      "iftrue": "2",
+      "iftrueVal": "24",
+      "iffalse": "0",
+      "iffalseVal": "8",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "create",
+      "comparison": "6",
+      "value": "(create||add||make||insert)",
+      "iftrue": "2",
+      "iftrueVal": "8",
+      "iffalse": "0",
+      "iffalseVal": "8",
+      "name": "Check Variable"
+    },
+    {
+      "condition": "0",
+      "comparison": "0",
+      "value": "1",
+      "iftrue": "2",
+      "iftrueVal": "14",
+      "iffalse": "1",
+      "iffalseVal": "11",
+      "name": "Check Parameters"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "info": "0",
+      "infoIndex": "2",
+      "storage": "1",
+      "varName": "name",
+      "name": "Store Command Params"
+    },
+    {
+      "storage": "1",
+      "varName": "name",
+      "comparison": "6",
+      "value": "[a-zA-Z]",
+      "iftrue": "2",
+      "iftrueVal": "32",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "input": "{\n\"filter\": \"${tempVars(\"name\")}\"\n}",
+      "format": ".json",
+      "filename": "${tempVars(\"name\").toLowerCase()}",
+      "filepath": "./filters/${tempVars(\"sid\")}/",
+      "filetask": "0",
+      "name": "File Control"
+    },
+    {
+      "input": "{\n\"filter\": \"${tempVars(\"name\").toLowerCase()}\"\n}",
+      "format": ".json",
+      "filename": "${tempVars(\"name\").toLowerCase()}",
+      "filepath": "./filters/${tempVars(\"sid\")}/",
+      "filetask": "1",
+      "name": "File Control"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Now filtering `${tempVars(\"name\")}`!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Too much/few parameters!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "info": "0",
+      "infoIndex": "2",
+      "storage": "1",
+      "varName": "name",
+      "name": "Store Command Params"
+    },
+    {
+      "filename": "./filters/${tempVars(\"sid\")}/${tempVars(\"name\")}.json",
+      "storage": "1",
+      "varName2": "jsonfile",
+      "name": "Read File"
+    },
+    {
+      "storage": "1",
+      "varName": "jsonfile",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "0",
+      "iftrueVal": "18",
+      "iffalse": "2",
+      "iffalseVal": "22",
+      "name": "Check Variable"
+    },
+    {
+      "input": "",
+      "format": ".json",
+      "filename": "${tempVars(\"name\")}",
+      "filepath": "./filters/${tempVars(\"sid\")}",
+      "filetask": "3",
+      "name": "File Control"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Deleted `${tempVars(\"name\")}`!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Cannot delete something that doesnt exist!!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Check your DMs!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "0",
+      "code": "const testFolder = './filters/${tempVars(\"sid\")}/';\nconst fs = require('fs');\nvar list = [];\nfs.readdirSync(testFolder).forEach(file => {\nvar newVar = file.replace(\".json\",\"\");\nlist.push(newVar);\nthis.storeValue(list, 1, \"myvar\", cache);\n\n\n  \n})",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "storage": "1",
+      "varName": "myvar",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "0",
+      "iftrueVal": "31",
+      "iffalse": "2",
+      "iffalseVal": "34",
+      "name": "Check Variable"
+    },
+    {
+      "list": "7",
+      "varName": "myvar",
+      "start": "",
+      "middle": "",
+      "end": "\\n",
+      "storage": "1",
+      "varName2": "myvar",
+      "name": "Convert List to Text"
+    },
+    {
+      "title": "Filtered Words",
+      "author": "",
+      "color": "",
+      "timestamp": "false",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "${tempVars(\"myvar\")}",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "1",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "More than one letter please!!!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "title": "No Filtered Words!",
+      "author": "",
+      "color": "",
+      "timestamp": "false",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "call": "30",
+      "name": "Jump to Action"
+    }
+  ],
+  "comType": "0"
+}

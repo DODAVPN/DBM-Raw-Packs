@@ -1,0 +1,112 @@
+{
+  "name": "filter any message",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "WlUoJ",
+  "actions": [
+    {
+      "message": "0",
+      "varName": "",
+      "info": "0",
+      "storage": "1",
+      "varName2": "mess",
+      "name": "Store Message Info"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "info": "1",
+      "storage": "1",
+      "varName2": "sid",
+      "name": "Store Server Info"
+    },
+    {
+      "message": "0",
+      "varName": "",
+      "info": "2",
+      "storage": "1",
+      "varName2": "messt",
+      "name": "Store Message Info"
+    },
+    {
+      "filename": "./filters/${tempVars(\"sid\")}/${tempVars(\"mess\")}.json",
+      "storage": "1",
+      "varName2": "filter",
+      "name": "Read File"
+    },
+    {
+      "storage": "1",
+      "varName": "filter",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "2",
+      "iftrueVal": "12",
+      "iffalse": "0",
+      "iffalseVal": "8",
+      "name": "Check Variable"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "0",
+      "code": "var value = msg.content.split(/\\s+/);\nvar arrayLength = value.length;\n\nthis.storeValue(arrayLength, 1, \"al\", cache);\nthis.storeValue(value, 1, \"value\", cache);",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "text": "${tempVars(\"value\")}",
+      "text2": "`",
+      "text3": "",
+      "info": "1",
+      "storage": "1",
+      "varName": "value",
+      "name": "Replace Text"
+    },
+    {
+      "text": "${tempVars(\"value\")}",
+      "text2": "``",
+      "text3": "",
+      "info": "1",
+      "storage": "1",
+      "varName": "value",
+      "name": "Replace Text"
+    },
+    {
+      "text": "${tempVars(\"value\")}",
+      "text2": "```",
+      "text3": "",
+      "info": "1",
+      "storage": "1",
+      "varName": "value",
+      "name": "Replace Text"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "0",
+      "code": "console.log(tempVars(\"value\"))\nvar value = tempVars(\"value\")\n  const testFolder = './filters/${tempVars(\"sid\")}/';\nconst fs = require('fs');\n\nfs.readdirSync(testFolder).forEach(file => {\nvar string = tempVars(\"messt\").toLowerCase()\nthis.storeValue(file, 1, \"myvar\", cache);\nvar newVar = tempVars(\"myvar\").replace(\".json\", \"\")\n\nif(string.indexOf(newVar) >= 0) {\n\n\n    \n      for (var i = 0; i < tempVars(\"al\"); i++) {\n\n\t\t   if (value[i] === newVar){\n    \n    \n          msg.delete(1000);\n          msg.author.send(\"Please do not say that word!\");\n\t}\n\t}\n}\n  \n})",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "1",
+      "varName": "auth",
+      "message": "Please do not say that word!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
+    },
+    {
+      "name": "End Action Sequence"
+    }
+  ],
+  "comType": "3"
+}

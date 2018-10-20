@@ -1,0 +1,467 @@
+{
+  "name": "multiban",
+  "permissions": "BAN_MEMBERS",
+  "restriction": "0",
+  "_id": "piebI",
+  "actions": [
+    {
+      "info": "2",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "user-1",
+      "name": "Store Command Params"
+    },
+    {
+      "info": "2",
+      "infoIndex": "2",
+      "storage": "1",
+      "varName": "user-2",
+      "name": "Store Command Params"
+    },
+    {
+      "info": "2",
+      "infoIndex": "3",
+      "storage": "1",
+      "varName": "user-3",
+      "name": "Store Command Params"
+    },
+    {
+      "info": "2",
+      "infoIndex": "4",
+      "storage": "1",
+      "varName": "user-4",
+      "name": "Store Command Params"
+    },
+    {
+      "info": "2",
+      "infoIndex": "5",
+      "storage": "1",
+      "varName": "user-5",
+      "name": "Store Command Params"
+    },
+    {
+      "info": "1",
+      "find": "Staff Team",
+      "storage": "1",
+      "varName": "staff-role",
+      "name": "Find Role"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "role": "3",
+      "varName2": "staff-role",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "41",
+      "name": "Check If Member has Role"
+    },
+    {
+      "condition": "0",
+      "comparison": "1",
+      "value": "1",
+      "iftrue": "2",
+      "iftrueVal": "37",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "condition": "0",
+      "comparison": "2",
+      "value": "5",
+      "iftrue": "2",
+      "iftrueVal": "39",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "title": "Before you proceed...",
+      "author": "",
+      "color": "#66ccff",
+      "timestamp": "false",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "question",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "question",
+      "message": "Are you sure you want to ban these users?\nIf you are not an admin, please contact with the \nowner of this server. You cannot ban people without\nowner's order. \nWARNING: By proceeding you accept the fact that the users\nyou tagged will get permanently banned.\nDo you want to continue?\n",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "question",
+      "message": "Please answer by typing either Yes or No.",
+      "footerIcon": "",
+      "name": "Set Embed Footer"
+    },
+    {
+      "storage": "1",
+      "varName": "question",
+      "channel": "0",
+      "varName2": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "filter": "content.length > 0",
+      "max": "1",
+      "time": "60000",
+      "varName2": "",
+      "storage2": "0",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "43",
+      "name": "Await Response Call Action"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "info": "4",
+      "storage": "1",
+      "varName2": "answer",
+      "name": "Store Channel Info"
+    },
+    {
+      "storage": "1",
+      "varName": "answer",
+      "comparison": "1",
+      "value": "Yes",
+      "iftrue": "2",
+      "iftrueVal": "20",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "answer",
+      "comparison": "1",
+      "value": "yes",
+      "iftrue": "2",
+      "iftrueVal": "20",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "answer",
+      "comparison": "1",
+      "value": "No",
+      "iftrue": "2",
+      "iftrueVal": "35",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "answer",
+      "comparison": "1",
+      "value": "no",
+      "iftrue": "2",
+      "iftrueVal": "35",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "member": "2",
+      "varName": "user-1",
+      "reason": "",
+      "name": "Ban Member"
+    },
+    {
+      "member": "2",
+      "varName": "user-2",
+      "reason": "",
+      "name": "Ban Member"
+    },
+    {
+      "member": "2",
+      "varName": "user-3",
+      "reason": "",
+      "name": "Ban Member"
+    },
+    {
+      "member": "2",
+      "varName": "user-4",
+      "reason": "",
+      "name": "Ban Member"
+    },
+    {
+      "member": "2",
+      "varName": "user-5",
+      "reason": "Banned for disobeying/rule breaking. ",
+      "name": "Ban Member"
+    },
+    {
+      "info": "1",
+      "find": "logs",
+      "storage": "1",
+      "varName": "logs",
+      "name": "Find Channel"
+    },
+    {
+      "condition": "0",
+      "comparison": "0",
+      "value": "5",
+      "iftrue": "2",
+      "iftrueVal": "31",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "condition": "0",
+      "comparison": "0",
+      "value": "1",
+      "iftrue": "2",
+      "iftrueVal": "45",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "condition": "0",
+      "comparison": "0",
+      "value": "2",
+      "iftrue": "2",
+      "iftrueVal": "49",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "condition": "0",
+      "comparison": "0",
+      "value": "3",
+      "iftrue": "2",
+      "iftrueVal": "53",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "condition": "0",
+      "comparison": "0",
+      "value": "4",
+      "iftrue": "2",
+      "iftrueVal": "57",
+      "iffalse": "1",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "title": "Multi-Ban",
+      "author": "",
+      "color": "dd3939",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "multibanmsg-5",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "multibanmsg-5",
+      "message": ">>${member} multi-banned `5` users.\n**USERS:**\n>${tempVars(\"user-1\")}\n>${tempVars(\"user-2\")}\n>${tempVars(\"user-3\")}\n>${tempVars(\"user-4\")}\n>${tempVars(\"user-5\")}\n\nIf a user was banned unfairly,\nplease consider unbanning them manually.\n",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "multibanmsg-5",
+      "channel": "5",
+      "varName2": "logs",
+      "name": "Send Embed Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "? Multi-Ban stopped. All users shall stay in the server with no punishment.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "? Not enough parametres. Please mention at least one or more members to ban.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "? Too many parametres. You can only ban up to 5 members. ",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "?? You don't have the required permissions!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "?? Tick tock... ${member} took too long to reply. Time out!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "title": "Multi-Ban",
+      "author": "",
+      "color": "dd3939",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "multibanmsg-1",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "multibanmsg-1",
+      "message": ">>${member} multi-banned `1` user.\n**USER:**\n>${tempVars(\"user-1\")}\n\nIf a user was banned unfairly,\nplease consider unbanning them manually.\n",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "multibanmsg-1",
+      "channel": "5",
+      "varName2": "logs",
+      "name": "Send Embed Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "title": "Multi-Ban",
+      "author": "",
+      "color": "dd3939",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "multibanmsg-2",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "multibanmsg-2",
+      "message": ">>${member} multi-banned `2` users.\n**USERS:**\n>${tempVars(\"user-1\")}\n>${tempVars(\"user-2\")}\n\nIf a user was banned unfairly,\nplease consider unbanning them manually.\n",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "multibanmsg-2",
+      "channel": "5",
+      "varName2": "logs",
+      "name": "Send Embed Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "title": "Multi-Ban",
+      "author": "",
+      "color": "dd3939",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "multibanmsg-3",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "multibanmsg-3",
+      "message": ">>${member} multi-banned `3` users.\n**USERS:**\n>${tempVars(\"user-1\")}\n>${tempVars(\"user-2\")}\n>${tempVars(\"user-3\")}\n\nIf a user was banned unfairly,\nplease consider unbanning them manually.\n",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "multibanmsg-3",
+      "channel": "5",
+      "varName2": "logs",
+      "name": "Send Embed Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "title": "Multi-Ban",
+      "author": "",
+      "color": "dd3939",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "multibanmsg-4",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "multibanmsg-4",
+      "message": ">>${member} multi-banned `4` users.\n**USERS:**\n>${tempVars(\"user-1\")}\n>${tempVars(\"user-2\")}\n>${tempVars(\"user-3\")}\n>${tempVars(\"user-4\")}\n\nIf a user was banned unfairly,\nplease consider unbanning them manually.\n",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "multibanmsg-4",
+      "channel": "5",
+      "varName2": "logs",
+      "name": "Send Embed Message"
+    },
+    {
+      "name": "End Action Sequence"
+    }
+  ]
+}
