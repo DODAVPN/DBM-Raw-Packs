@@ -1,0 +1,164 @@
+{
+  "name": "csgostats",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "DAcLG",
+  "actions": [
+    {
+      "comment": "CSGO stats command, Be sure to add your own steam developer API key to use. ",
+      "color": "#000000",
+      "name": "Comment"
+    },
+    {
+      "info": "0",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "ID",
+      "name": "Store Command Params"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "http://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/?key=API-KEY-HERE&appid=730&steamid=${tempVars(\"ID\")}",
+      "path": "",
+      "storage": "1",
+      "varName": "csgoapi",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "csgoapi",
+      "path": "playerstats.stats[0].value",
+      "storage": "1",
+      "varName": "totalkills",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "csgoapi",
+      "path": "playerstats.stats[1].value",
+      "storage": "1",
+      "varName": "totaldeaths",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "csgoapi",
+      "path": "playerstats.stats[5].value",
+      "storage": "1",
+      "varName": "totalwins",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "csgoapi",
+      "path": "playerstats.stats[2].value",
+      "storage": "1",
+      "varName": "totalplaytime",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "csgoapi",
+      "path": "playerstats.stats[8].value",
+      "storage": "1",
+      "varName": "totalrescued",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "comment": "Now to store actual status of weapons",
+      "color": "#000000",
+      "name": "Comment"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "csgoapi",
+      "path": "playerstats.stats[9].value",
+      "storage": "1",
+      "varName": "totalknifekills",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "csgoapi",
+      "path": "playerstats.stats[10].value",
+      "storage": "1",
+      "varName": "totalgrenadekills",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "csgoapi",
+      "path": "playerstats.stats[11].value",
+      "storage": "1",
+      "varName": "totalglockkills",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "csgoapi",
+      "path": "playerstats.stats[13].value",
+      "storage": "1",
+      "varName": "totalelite",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "csgoapi",
+      "path": "playerstats.stats[14].value",
+      "storage": "1",
+      "varName": "totalfiveseven",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "comment": "Now to show all this in a embed.",
+      "color": "#000000",
+      "name": "Comment"
+    },
+    {
+      "title": "? CS:GO Stats ?",
+      "author": "",
+      "color": "#36393E",
+      "timestamp": "true",
+      "url": "https://discord.gg/jgVAmFX",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "https://vignette.wikia.nocookie.net/cswikia/images/0/0c/Csgo-payback-icon.png/revision/latest?cb=20141112151119",
+      "storage": "1",
+      "varName": "csgoembed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "csgoembed",
+      "message": "${member} Here are your Stats??\n",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "csgoembed",
+      "fieldName": "? __Overall Status__",
+      "message": "**Total Kills:** ${tempVars(\"totalkills\")}\n**Total Death's:** ${tempVars(\"totaldeaths\")}\n**Total Win's:** ${tempVars(\"totalwins\")}\n**Total Playtime:** ${tempVars(\"totalplaytime\")}\n**Total Rescued:** ${tempVars(\"totalrescued\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "csgoembed",
+      "fieldName": "? __Weapon Status__",
+      "message": "**Total Knife Kills:** ${tempVars(\"totalknifekills\")}\n**Total Grenade Kills:** ${tempVars(\"totalgrenadekills\")}\n**Total Glock Kills:** ${tempVars(\"totalglockkills\")}\n**Total Elite:** ${tempVars(\"totalelite\")}\n**Total FiveSeven:** ${tempVars(\"totalfiveseven\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "csgoembed",
+      "channel": "0",
+      "varName2": "",
+      "name": "Send Embed Message"
+    }
+  ]
+}

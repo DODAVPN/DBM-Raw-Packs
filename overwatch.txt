@@ -1,0 +1,672 @@
+{
+  "name": "cmd!ow",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "pkQLM",
+  "actions": [
+    {
+      "info": "0",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "platform",
+      "name": "Store Command Params"
+    },
+    {
+      "info": "0",
+      "infoIndex": "2",
+      "storage": "1",
+      "varName": "region",
+      "name": "Store Command Params"
+    },
+    {
+      "info": "0",
+      "infoIndex": "3",
+      "storage": "1",
+      "varName": "battletag",
+      "name": "Store Command Params"
+    },
+    {
+      "info": "0",
+      "infoIndex": "4",
+      "storage": "1",
+      "varName": "compquick",
+      "name": "Store Command Params"
+    },
+    {
+      "text": "${tempVars(\"battletag\")}",
+      "text2": "#",
+      "text3": "-",
+      "info": "1",
+      "storage": "1",
+      "varName": "replacedbattletag",
+      "name": "Replace Text"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "error",
+      "storage": "1",
+      "varName": "error",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "storage": "1",
+      "varName": "error",
+      "comparison": "1",
+      "value": "The requested player was not found",
+      "iftrue": "2",
+      "iftrueVal": "70",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "condition": "0",
+      "comparison": "0",
+      "value": "3",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "22",
+      "name": "Check Parameters"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": ":clock2: **Retrieving Basic Information...**",
+      "storage": "1",
+      "varName2": "initmsg",
+      "name": "Send Message"
+    },
+    {
+      "text": "${tempVars(\"battletag\")}",
+      "text2": "#",
+      "text3": "-",
+      "info": "1",
+      "storage": "1",
+      "varName": "replacedbattletag",
+      "name": "Replace Text"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "icon",
+      "storage": "1",
+      "varName": "icon",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "level",
+      "storage": "1",
+      "varName": "level",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "levelIcon",
+      "storage": "1",
+      "varName": "levelicon",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "prestige",
+      "storage": "1",
+      "varName": "prestige",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "gamesWon",
+      "storage": "1",
+      "varName": "gameswon",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "title": "Overwatch Basic Stats - ${tempVars(\"battletag\")}",
+      "author": "",
+      "color": "FF9700",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "${tempVars(\"icon\")}",
+      "imageUrl": "",
+      "thumbUrl": "${tempVars(\"icon\")}",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "**Level:** `${tempVars(\"level\")}`\n**Prestige:** `${tempVars(\"prestige\")}`\n**Total Games Won:** `${tempVars(\"gameswon\")}`\n",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "Tip: Try adding 'quickplay' or 'comp' to the end of the command!",
+      "footerIcon": "${tempVars(\"levelicon\")}",
+      "name": "Set Embed Footer"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "0",
+      "varName2": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "initmsg",
+      "name": "Delete Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "condition": "0",
+      "comparison": "0",
+      "value": "4",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "68",
+      "name": "Check Parameters"
+    },
+    {
+      "storage": "1",
+      "varName": "compquick",
+      "comparison": "1",
+      "value": "'quickplay'",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "44",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": ":clock2: **Retrieving Quickplay Information...**",
+      "storage": "1",
+      "varName2": "initmsg",
+      "name": "Send Message"
+    },
+    {
+      "text": "${tempVars(\"battletag\")}",
+      "text2": "#",
+      "text3": "-",
+      "info": "1",
+      "storage": "1",
+      "varName": "replacedbattletag",
+      "name": "Replace Text"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "icon",
+      "storage": "1",
+      "varName": "icon",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "levelIcon",
+      "storage": "1",
+      "varName": "levelicon",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "quickPlayStats.games.played",
+      "storage": "1",
+      "varName": "gamesplayed",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "quickPlayStats.games.won",
+      "storage": "1",
+      "varName": "gameswon",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "quickPlayStats.eliminationsAvg",
+      "storage": "1",
+      "varName": "avgeliminations",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "quickPlayStats.deathsAvg",
+      "storage": "1",
+      "varName": "avgdeaths",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "quickPlayStats.damageDoneAvg",
+      "storage": "1",
+      "varName": "avgdamage",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "quickPlayStats.awards.cards",
+      "storage": "1",
+      "varName": "carawards",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "quickPlayStats.awards.medals",
+      "storage": "1",
+      "varName": "totalmedals",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "quickPlayStats.awards.medalsBronze",
+      "storage": "1",
+      "varName": "bronzemedals",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "quickPlayStats.awards.medalsSilver",
+      "storage": "1",
+      "varName": "silvermedals",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "quickPlayStats.awards.medalsGold",
+      "storage": "1",
+      "varName": "goldmedals",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "title": "Overwatch Quickplay Stats - ${tempVars(\"battletag\")}",
+      "author": "",
+      "color": "FF9700",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "${tempVars(\"icon\")}",
+      "imageUrl": "",
+      "thumbUrl": "${tempVars(\"icon\")}",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "\n**__General Statistics__**\n\n   **Games Played:** `${tempVars(\"gamesplayed\")}` :game_die: \n   **Games Won:** `${tempVars(\"gameswon\")}` :military_medal: \n   **Avg. Kills:** `${tempVars(\"avgeliminations\")}` :gun: \n   **Avg. Deaths:** `${tempVars(\"avgdeaths\")}` :skull: \n   **Avg. Damage:** `${tempVars(\"avgdamage\")}` :syringe: \n\n\n**__Award Statistics__**\n\n   **Total Cards:** `${tempVars(\"carawards\")}` :black_joker:\n   **Total Medals:** `${tempVars(\"totalmedals\")}` :medal:\n   **Bronze Medals:** `${tempVars(\"bronzemedals\")}` :third_place:\n   **Silver Medals:** `${tempVars(\"silvermedals\")}` :second_place:\n   **Golden Medals:** `${tempVars(\"goldmedals\")}` :first_place:",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "Tip: Try adding 'quickplay' or 'comp' to the end of the command!",
+      "footerIcon": "${tempVars(\"levelicon\")}",
+      "name": "Set Embed Footer"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "0",
+      "varName2": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "initmsg",
+      "name": "Delete Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "condition": "0",
+      "comparison": "0",
+      "value": "4",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "68",
+      "name": "Check Parameters"
+    },
+    {
+      "storage": "1",
+      "varName": "compquick",
+      "comparison": "1",
+      "value": "'comp'",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "66",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": ":clock2: **Retrieving Competitive Information...**",
+      "storage": "1",
+      "varName2": "initmsg",
+      "name": "Send Message"
+    },
+    {
+      "text": "${tempVars(\"battletag\")}",
+      "text2": "#",
+      "text3": "-",
+      "info": "1",
+      "storage": "1",
+      "varName": "replacedbattletag",
+      "name": "Replace Text"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "icon",
+      "storage": "1",
+      "varName": "icon",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "levelIcon",
+      "storage": "1",
+      "varName": "levelicon",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "quickPlayStats.games.played",
+      "storage": "1",
+      "varName": "gamesplayed",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "quickPlayStats.games.won",
+      "storage": "1",
+      "varName": "gameswon",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "competitiveStats.eliminationsAvg",
+      "storage": "1",
+      "varName": "avgeliminations",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "competitiveStats.deathsAvg",
+      "storage": "1",
+      "varName": "avgdeaths",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "competitiveStats.damageDoneAvg",
+      "storage": "1",
+      "varName": "avgdamage",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "competitiveStats.awards.cards",
+      "storage": "1",
+      "varName": "carawards",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "competitiveStats.awards.medals",
+      "storage": "1",
+      "varName": "totalmedals",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "competitiveStats.awards.medalsBronze",
+      "storage": "1",
+      "varName": "bronzemedals",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "competitiveStats.awards.medalsSilver",
+      "storage": "1",
+      "varName": "silvermedals",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://ow-api.com/v1/stats/${tempVars(\"platform\")}/${tempVars(\"region\")}/${tempVars(\"replacedbattletag\")}/profile",
+      "path": "competitiveStats.awards.medalsGold",
+      "storage": "1",
+      "varName": "goldmedals",
+      "debugMode": "1",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "title": "Overwatch Competitive Stats - ${tempVars(\"battletag\")}",
+      "author": "",
+      "color": "FF9700",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "${tempVars(\"icon\")}",
+      "imageUrl": "",
+      "thumbUrl": "${tempVars(\"icon\")}",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "\n**__General Statistics__**\n\n   **Games Played:** `${tempVars(\"gamesplayed\")}` :game_die: \n   **Games Won:** `${tempVars(\"gameswon\")}` :military_medal: \n   **Avg. Kills:** `${tempVars(\"avgeliminations\")}` :gun: \n   **Avg. Deaths:** `${tempVars(\"avgdeaths\")}` :skull: \n   **Avg. Damage:** `${tempVars(\"avgdamage\")}` :syringe: \n\n\n**__Award Statistics__**\n\n   **Total Cards:** `${tempVars(\"carawards\")}` :black_joker:\n   **Total Medals:** `${tempVars(\"totalmedals\")}` :medal:\n   **Bronze Medals:** `${tempVars(\"bronzemedals\")}` :third_place:\n   **Silver Medals:** `${tempVars(\"silvermedals\")}` :second_place:\n   **Golden Medals:** `${tempVars(\"goldmedals\")}` :first_place:",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "Tip: Try adding 'quickplay' or 'comp' to the end of the command!",
+      "footerIcon": "${tempVars(\"levelicon\")}",
+      "name": "Set Embed Footer"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "0",
+      "varName2": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "initmsg",
+      "name": "Delete Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": ":x: **You must enter a valid gamemode! Current gamemodes are `quickplay` and `comp`!**",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": ":x: **You must enter a platform, the region, and the users battletag in that order!**\n\n__Platforms:__\n`pc`\n\n__Regions:__\n`eu`, `us`, `asia`\n\n__Ex. Battletag:__\n`cats#11481`",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": ":x: **The parameters you entered could not be found!**\n\n__Platforms:__\n`pc`, `xbox`, `ps4`\n\n__Regions:__\n`eu`, `us`, `asia`\n\n__Ex. Battletag:__\n`cats#11481`",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ]
+}s

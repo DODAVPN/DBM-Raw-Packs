@@ -1,0 +1,571 @@
+{
+  "name": "pubg",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "WZMyj",
+  "actions": [
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
+    },
+    {
+      "condition": "0",
+      "comparison": "0",
+      "value": "3",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "2",
+      "iffalseVal": "75",
+      "name": "Check Parameters"
+    },
+    {
+      "info": "0",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "playername",
+      "name": "Store Command Params"
+    },
+    {
+      "info": "0",
+      "infoIndex": "2",
+      "storage": "1",
+      "varName": "platform",
+      "name": "Store Command Params"
+    },
+    {
+      "info": "0",
+      "infoIndex": "3",
+      "storage": "1",
+      "varName": "region",
+      "name": "Store Command Params"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://api.playbattlegrounds.com/shards/${tempVars(\"platform\")}-${tempVars(\"region\")}/players?filter[playerNames]=${tempVars(\"playername\")}",
+      "path": "",
+      "storage": "1",
+      "varName": "playeridsource",
+      "debugMode": "1",
+      "headers": "Authorization: Bearer TOKEN HERE",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "playeridsource",
+      "path": "data[0].id",
+      "storage": "1",
+      "varName": "playerid",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://api.playbattlegrounds.com/shards/${tempVars(\"platform\")}-${tempVars(\"region\")}/players/${tempVars(\"playerid\")}/seasons/division.bro.official.2018-06",
+      "path": "",
+      "storage": "1",
+      "varName": "pubgstatsAPI",
+      "debugMode": "1",
+      "headers": "Authorization: Bearer KEY HERE",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "comment": "===============FPP==================",
+      "color": "#80ff00",
+      "name": "Comment"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.solo-fpp.kills",
+      "storage": "1",
+      "varName": "SoloKills",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.solo-fpp.losses",
+      "storage": "1",
+      "varName": "SoloLoses",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.solo-fpp.headshotKills",
+      "storage": "1",
+      "varName": "SoloHeadShots",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.solo-fpp.weeklyKills",
+      "storage": "1",
+      "varName": "SoloWeeklyKills",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.solo-fpp.wins",
+      "storage": "1",
+      "varName": "SoloWins",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.solo-fpp.top10s",
+      "storage": "1",
+      "varName": "SoloTop10",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.solo-fpp.suicides",
+      "storage": "1",
+      "varName": "SoloSuicides",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "comment": "===============FPP==================",
+      "color": "#80ff00",
+      "name": "Comment"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.duo-fpp.kills",
+      "storage": "1",
+      "varName": "DuoKills",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.duo-fpp.losses",
+      "storage": "1",
+      "varName": "DuoLoses",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.duo-fpp.headshotKills",
+      "storage": "1",
+      "varName": "DuoHeadShots",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.duo-fpp.weeklyKills",
+      "storage": "1",
+      "varName": "DuoWeeklyKills",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.duo-fpp.wins",
+      "storage": "1",
+      "varName": "DuoWins",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.duo-fpp.top10s",
+      "storage": "1",
+      "varName": "DuoTop10",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.duo-fpp.suicides",
+      "storage": "1",
+      "varName": "DuoSuicides",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "comment": "===============FPP==================",
+      "color": "#80ff00",
+      "name": "Comment"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.squad-fpp.kills",
+      "storage": "1",
+      "varName": "SquadKills",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.squad-fpp.losses",
+      "storage": "1",
+      "varName": "SquadLoses",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.squad-fpp.headshotKills",
+      "storage": "1",
+      "varName": "SquadHeadShots",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.squad-fpp.weeklyKills",
+      "storage": "1",
+      "varName": "SquadWeeklyKills",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.squad-fpp.wins",
+      "storage": "1",
+      "varName": "SquadWins",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.squad-fpp.top10s",
+      "storage": "1",
+      "varName": "SquadTop10",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.squad-fpp.suicides",
+      "storage": "1",
+      "varName": "SquadSuicides",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "comment": "===============TPP==================",
+      "color": "#80ff00",
+      "name": "Comment"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.squad.kills",
+      "storage": "1",
+      "varName": "SquadKillsTPP",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.squad.losses",
+      "storage": "1",
+      "varName": "SquadLosesTPP",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.squad.headshotKills",
+      "storage": "1",
+      "varName": "SquadHeadShotsTPP",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.squad.weeklyKills",
+      "storage": "1",
+      "varName": "SquadWeeklyKillsTPP",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.squad.wins",
+      "storage": "1",
+      "varName": "SquadWinsTPP",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.squad.top10s",
+      "storage": "1",
+      "varName": "SquadTop10TPP",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.squad.suicides",
+      "storage": "1",
+      "varName": "SquadSuicidesTPP",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "comment": "===============TPP==================",
+      "color": "#80ff00",
+      "name": "Comment"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.solo.kills",
+      "storage": "1",
+      "varName": "SoloKillsTPP",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.solo.losses",
+      "storage": "1",
+      "varName": "SoloLosesTPP",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.solo.headshotKills",
+      "storage": "1",
+      "varName": "SoloHeadShotsTPP",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.solo.weeklyKills",
+      "storage": "1",
+      "varName": "SoloWeeklyKillsTPP",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.solo.wins",
+      "storage": "1",
+      "varName": "SoloWinsTPP",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.solo.top10s",
+      "storage": "1",
+      "varName": "SoloTop10TPP",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.solo.suicides",
+      "storage": "1",
+      "varName": "SoloSuicidesTPP",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "comment": "===============TPP==================",
+      "color": "#80ff00",
+      "name": "Comment"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.duo.kills",
+      "storage": "1",
+      "varName": "DuoKillsTPP",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.duo.losses",
+      "storage": "1",
+      "varName": "DuoLosesTPP",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.duo.headshotKills",
+      "storage": "1",
+      "varName": "DuoHeadShotsTPP",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.duo.weeklyKills",
+      "storage": "1",
+      "varName": "DuoWeeklyKillsTPP",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.duo.wins",
+      "storage": "1",
+      "varName": "DuoWinsTPP",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.duo.top10s",
+      "storage": "1",
+      "varName": "DuoTop10TPP",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "behavior": "0",
+      "jsonObjectVarName": "pubgstatsAPI",
+      "path": ".data.attributes.gameModeStats.duo.suicides",
+      "storage": "1",
+      "varName": "DuoSuicidesTPP",
+      "name": "Parse From Stored Json"
+    },
+    {
+      "comment": "=========================================",
+      "color": "#80ff00",
+      "name": "Comment"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "EliteArtzIsPro": "0",
+      "name": "Bot Typing"
+    },
+    {
+      "comment": "=========================================",
+      "color": "#80ff00",
+      "name": "Comment"
+    },
+    {
+      "time": "5",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "comment": "=========================================",
+      "color": "#80ff00",
+      "name": "Comment"
+    },
+    {
+      "title": "__PUBG Stats__",
+      "author": "",
+      "color": "#36393E",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "https://media.discordapp.net/attachments/443451609360498690/485130131912785920/pubg-logo-style-one.png",
+      "thumbUrl": "http://www.twistedsin.org/wp-content/uploads/2018/01/cropped-pubg-logo.png",
+      "storage": "1",
+      "varName": "pubgembmsg",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "pubgembmsg",
+      "message": "\n__**Player:**__ [${tempVars(\"playername\")}](https://pubgtracker.com/profile/pc/${tempVars(\"playername\")}?region=${tempVars(\"region\")})\n__**Player Game ID:**__ ``${tempVars(\"playerid\")}``",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "pubgembmsg",
+      "fieldName": "__**Solo FPP:**__",
+      "message": "Solo ``FPP`` Kills: ``${tempVars(\"SoloKills\")}``\nSolo ``FPP`` Losses: ``${tempVars(\"SoloLoses\")}``\nSolo ``FPP`` Headshots: ``${tempVars(\"SoloHeadShots\")}``\nSolo ``FPP`` Weekly Kills: ``${tempVars(\"SoloWeeklyKills\")}``\nSolo ``FPP`` Wins: ``${tempVars(\"SoloWins\")}``\nSolo ``FPP`` Top 10: ``${tempVars(\"SoloTop10\")}``\nSolo ``FPP`` Suicides: ``${tempVars(\"SoloSuicides\")}``",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "pubgembmsg",
+      "fieldName": "__**Duo FPP:**__",
+      "message": "Duo ``FPP`` Kills: ``${tempVars(\"DuoKills\")}``\nDuo ``FPP`` Losses: ``${tempVars(\"DuoLoses\")}``\nDuo ``FPP`` Headshots: ``${tempVars(\"DuoHeadShots\")}``\nDuo ``FPP`` Weekly Kills: ``${tempVars(\"DuoWeeklyKills\")}``\nDuo ``FPP`` Wins: ``${tempVars(\"DuoWins\")}``\nDuo ``FPP`` Top 10: ``${tempVars(\"DuoTop10\")}``\nDuo ``FPP`` Suicides: ``${tempVars(\"DuoSuicides\")}``",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "pubgembmsg",
+      "fieldName": "__**Squad FPP:**__",
+      "message": "Squad ``FPP`` Kills: ``${tempVars(\"SquadKills\")}``\nSquad ``FPP`` Losses: ``${tempVars(\"SquadLoses\")}``\nSquad ``FPP`` Headshots: ``${tempVars(\"SquadHeadShots\")}``\nSquad ``FPP`` Weekly Kills: ``${tempVars(\"SquadWeeklyKills\")}``\nSquad ``FPP`` Wins: ``${tempVars(\"SquadWins\")}``\nSquad ``FPP`` Top 10: ``${tempVars(\"SquadTop10\")}``\nSquad ``FPP`` Suicides: ``${tempVars(\"SquadSuicides\")}``",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "pubgembmsg",
+      "fieldName": "__**Solo TPP:**__",
+      "message": "Solo ``TPP`` Kills: ``${tempVars(\"SoloKillsTPP\")}``\nSolo ``TPP`` Losses: ``${tempVars(\"SoloLosesTPP\")}``\nSolo ``TPP`` Headshots: ``${tempVars(\"SoloHeadShotsTPP\")}``\nSolo ``TPP`` Weekly Kills: ``${tempVars(\"SoloWeeklyKillsTPP\")}``\nSolo ``TPP`` Wins: ``${tempVars(\"SoloWinsTPP\")}``\nSolo ``TPP`` Top 10: ``${tempVars(\"SoloTop10TPP\")}``\nSolo ``TPP`` Suicides: ``${tempVars(\"SoloSuicidesTPP\")}``",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "pubgembmsg",
+      "fieldName": "__**Duo TPP:**__",
+      "message": "Duo ``TPP`` Kills: ``${tempVars(\"DuoKillsTPP\")}``\nDuo ``TPP`` Losses: ``${tempVars(\"DuoLosesTPP\")}``\nDuo ``TPP`` Headshots: ``${tempVars(\"DuoHeadShotsTPP\")}``\nDuo ``TPP`` Weekly Kills: ``${tempVars(\"DuoWeeklyKillsTPP\")}``\nDuo ``TPP`` Wins: ``${tempVars(\"DuoWinsTPP\")}``\nDuo ``TPP`` Top 10: ``${tempVars(\"DuoTop10TPP\")}``\nDuo ``TPP`` Suicides: ``${tempVars(\"DuoSuicidesTPP\")}``",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "pubgembmsg",
+      "fieldName": "__**Squad TPP:**__",
+      "message": "Squad ``TPP`` Kills: ``${tempVars(\"SquadKillsTPP\")}``\nSquad ``TPP`` Losses: ``${tempVars(\"SquadLosesTPP\")}``\nSquad ``TPP`` Headshots: ``${tempVars(\"SquadHeadShotsTPP\")}``\nSquad ``TPP`` Weekly Kills: ``${tempVars(\"SquadWeeklyKillsTPP\")}``\nSquad ``TPP`` Wins: ``${tempVars(\"SquadWinsTPP\")}``\nSquad ``TPP`` Top 10: ``${tempVars(\"SquadTop10TPP\")}``\nSquad ``TPP`` Suicides: ``${tempVars(\"SquadSuicidesTPP\")}``",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "pubgembmsg",
+      "message": "JoKeR#0001 || MythBot",
+      "footerIcon": "https://mythbot.tk/wp-content/uploads/2018/07/MythBot.png",
+      "name": "Set Embed Footer"
+    },
+    {
+      "storage": "1",
+      "varName": "pubgembmsg",
+      "channel": "0",
+      "varName2": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "comment": "=========================================",
+      "color": "#80ff00",
+      "name": "Comment"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "EliteArtzIsPro": "1",
+      "name": "Bot Typing"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Oops, Something went wrong!\nExample: \n``${this.getDBM().Files.data.settings.tag}pubg shroud pc na``",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ]
+}
