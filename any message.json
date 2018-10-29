@@ -40,7 +40,7 @@
       "comparison": "0",
       "value": "",
       "iftrue": "2",
-      "iftrueVal": "12",
+      "iftrueVal": "9",
       "iffalse": "0",
       "iffalseVal": "8",
       "name": "Check Variable"
@@ -54,36 +54,9 @@
       "name": "Run Script"
     },
     {
-      "text": "${tempVars(\"value\")}",
-      "text2": "`",
-      "text3": "",
-      "info": "1",
-      "storage": "1",
-      "varName": "value",
-      "name": "Replace Text"
-    },
-    {
-      "text": "${tempVars(\"value\")}",
-      "text2": "``",
-      "text3": "",
-      "info": "1",
-      "storage": "1",
-      "varName": "value",
-      "name": "Replace Text"
-    },
-    {
-      "text": "${tempVars(\"value\")}",
-      "text2": "```",
-      "text3": "",
-      "info": "1",
-      "storage": "1",
-      "varName": "value",
-      "name": "Replace Text"
-    },
-    {
       "behavior": "0",
       "interpretation": "0",
-      "code": "console.log(tempVars(\"value\"))\nvar value = tempVars(\"value\")\n  const testFolder = './filters/${tempVars(\"sid\")}/';\nconst fs = require('fs');\n\nfs.readdirSync(testFolder).forEach(file => {\nvar string = tempVars(\"messt\").toLowerCase()\nthis.storeValue(file, 1, \"myvar\", cache);\nvar newVar = tempVars(\"myvar\").replace(\".json\", \"\")\n\nif(string.indexOf(newVar) >= 0) {\n\n\n    \n      for (var i = 0; i < tempVars(\"al\"); i++) {\n\n\t\t   if (value[i] === newVar){\n    \n    \n          msg.delete(1000);\n          msg.author.send(\"Please do not say that word!\");\n\t}\n\t}\n}\n  \n})",
+      "code": "console.log(tempVars(\"value\"))\nvar value = tempVars(\"value\")\n  const testFolder = './filters/${tempVars(\"sid\")}/';\nconst fs = require('fs');\n\nfs.readdirSync(testFolder).forEach(file => {\nvar string = tempVars(\"messt\").toLowerCase()\nthis.storeValue(file, 1, \"myvar\", cache);\nvar newVar = tempVars(\"myvar\").replace(\".json\", \"\")\n\nif(string.indexOf(newVar) >= 0) {\n\n\n    \n      for (var i = 0; i < tempVars(\"al\"); i++) {\n         var value2 = value[i].toLowerCase()\n           console.log(value2)\n\t\t   if (value2 === newVar){\n    \n    \n          msg.delete(1000);\n          msg.author.send(\"Please do not say that word!\");\n\t}\n\t}\n}\n  \n})",
       "storage": "0",
       "varName": "",
       "name": "Run Script"
